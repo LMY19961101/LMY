@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 390px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #content{
+            width: 520px;
+            position: absolute;
+        }
+        #content li{
+            width: 120px;
+            height: 120px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 120px;
+            font-size: 30px;
+            float: left;
+            margin-right: 10px;
+        }
+        #prev, #next{
+            width: 50px;
+            height: 30px;
+            float: left;
+            background: #cccccc;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #arrows{
+            width: 110px;
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            margin-left: -55px;
+            bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="content">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="arrows">
+        <span id="prev">向左</span>
+        <span id="next">向右</span>
+    </div>
+</div>
+<script>
+    var oContent = document.getElementById("content");
+    var oPrev = document.getElementById("prev");
+    var oNext = document.getElementById("next");
+    var speed = 5;
+    //        var aLi = oContent.getElementsByTagName("li");
+    oContent.innerHTML += oContent.innerHTML;
+   // console.log(oContent.innerHTML);
+    //        console.log(aLi.length);
+    oContent.style.width = oContent.offsetWidth * 2 + "px";
+    setInterval(function(){
+        oContent.style.left = oContent.offsetLeft - speed + "px";
+        if(oContent.offsetLeft <= -oContent.offsetWidth / 2){
+            oContent.style.left = 0;
+        }
+        if(oContent.offsetLeft > 0){
+            oContent.style.left = -oContent.offsetWidth / 2 + "px";
+        }
+    }, 50);
+    oPrev.onmouseover = oNext.onmouseover = function(){
+        if(this == oPrev){
+            speed = 5;
+        }else{
+            speed = -5;
+        }
+    };
+</script>
+</body>
+</html>
