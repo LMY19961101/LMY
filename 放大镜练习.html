@@ -96,7 +96,7 @@
                 var fScaleY = iTop/(oSmallBox.offsetHeight - oFloat.offsetHeight);
 
                 oBigPic.style.left = - fScaleX * (oBigPic.offsetHeight - oBigBox.offsetHeight) + 'px';//不要忘记写px
-                oBigPic.style.top = - fScaleY * (oBigPic.offsetHeight - oBigBox.offsetHeight) + 'px';
+                oBigBox.style.top = - fScaleY * (oBigPic.offsetHeight - oBigBox.offsetHeight) + 'px';
 
                 return false;
             };
