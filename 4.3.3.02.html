@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <script>
+        function digui1(num){
+            if(num == 1){
+                return 1;
+            }
+            return num = num * arguments.callee(num - 1);
+        }
+        function digui2(num){
+            var sum = 1;
+            for(var i = 1; i <= num; i++){
+                sum *= i;
+            }
+            return sum;
+        }
+        document.write(digui1(10) + "<br>");
+        document.write(digui2(10));
+    </script>
+    </body>
+</html>
