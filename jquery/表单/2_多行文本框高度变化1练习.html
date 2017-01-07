@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>2练习</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                margin: 150px;
+                width: 300px;
+            }
+            #tab span{
+                display: inline-block;
+                width: 45px;
+                height: 25px;
+                background: #aaaaaa;
+                color: #000000;
+                text-align: center;
+                line-height: 25px;
+            }
+            #text{
+                width: 300px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="tab">
+                <span id="bigger">放大</span>
+                <span id="smaller">缩小</span>
+            </div>
+            <div id="content">
+                 <textarea name="" id="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</textarea>
+            </div>
+        </div>
+        <script src="jquery-1.12.4.js"></script>
+        <script>
+            $('#bigger').click(function(){
+                var height = $("text").height();
+                if(height<300){
+                    $("#text").height(height+50);
+                }
+            });
+            $("#smaller").click(function(){
+                var height = $("#text").height();
+                if(height>50){
+                    $("#text").height(height-50);
+                }
+            });
+        </script>
+    </body>
+</html>
