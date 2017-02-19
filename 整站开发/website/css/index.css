@@ -1,0 +1,45 @@
+/*banner¿ªÊ¼*/
+
+#banner{
+    height: 460px;
+    background: url(../img/banner-bg.png) repeat-x;
+}
+#banner .wrapper{
+    position: relative;
+    height: 100%;
+}
+#banner .arrow{
+    width: 29px;
+    height: 50px;
+    background: url(../img/sprite.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+}
+#banner .prev{
+    background-position: 0 -14px;
+    left: 0;
+}
+#banner .next{
+    background-position: -29px -14px;
+    right: 0;
+}
+#img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 552px;
+    height: 321px;
+    margin-top: -140px;
+    margin-left: -280px;
+}
+#imgs{
+    height: 100%;
+}
+#three{
+    position: relative;
+    top: 100px;
+    width: 100%;
+}
+
+/*banner½áÊø*/
