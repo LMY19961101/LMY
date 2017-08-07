@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #goTop{
+            width: 50px;
+            height: 50px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 50px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+haha
+<div id="goTop">go!</div>
+<script>
+    var goTop = document.getElementById('goTop');
+    goTop.onclick = function(){
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;//获取当前位置到顶部的距离
+        var timer = setInterval(function(){
+            window.scrollTo(0,scrollTop -= 10);//函数，（横轴移动，纵轴移动）
+            if(scrollTop <= 0){
+                clearInterval(timer);
+            }
+        },30);
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
