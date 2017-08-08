@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手机</title>
+</head>
+<body>
+<input type="text" id="search">
+<ul id="result">
+    <li>iphone</li>
+    <li>huawei</li>
+    <li>xiaomi</li>
+</ul>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#search").on("keyup",function(e){
+            $("#result li").css("background","transparent");
+            if($(this).val() != ""){
+                $("#result li:contains(" + $(this).val().toLowerCase() + ")").css("background","#f00");
+            }
+        });
+    });
+</script>
+</body>
+</html>
