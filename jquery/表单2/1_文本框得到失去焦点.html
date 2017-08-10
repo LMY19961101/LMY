@@ -26,11 +26,11 @@
         <legend>个人基本信息</legend>
         <div>
             <lable for="username">名称</lable>
-            <input id="username" type="text"/>
+            <input id="username" type="text" value="名称"/>
         </div>
         <div>
             <lable for="pass">密码</lable>
-            <input id="password" type="text"/>
+            <input id="password" type="text" value="12345"/>
         </div>
         <div>
             <lable for="msg">详细信息</lable>
@@ -48,14 +48,12 @@
 <script src="../jquery-1.12.4.js"></script>
 <script>
     $(function(){
-        $(":input").on(function(){
+        $(":input").on("focus",function(){
             $(this).addClass("focus");
-        }).blur(function(){
+        });
+        $(":input").on("blur",function(){
             $(this).removeClass("focus");
         });
-
-
-
     });
 </script>
 </body>
