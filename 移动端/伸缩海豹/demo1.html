@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>我的</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h3{
+            width: 960px;
+            height: 100px;
+            background: #CCCCCC;
+            line-height: 100px;
+            text-align: center;
+            margin: 30px auto;
+            color: #FFFFFF;
+        }
+        #banner{
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            background: url(01.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+        #content{
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        #left, #right{
+            float: left;
+            height: 300px;
+            display: table;
+            text-align: center;
+        }
+        #left p, #right p{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #left{
+            width: 600px;
+            background: #FA5889;
+            margin-right: 30px;
+        }
+        #right{
+            width: 330px;
+            background: #0000ff;
+        }
+        #footer{
+            clear: both;
+        }
+        @media (max-width: 959px) {
+            h3{
+                width: 100%;
+            }
+            #banner{
+                width: 100%;
+                padding-top: 56%;
+                height: 0;
+                background-image: url(01_s_2x.jpg);
+            }
+            #content{
+                width: 100%;
+            }
+            #left{
+                width: 57%;
+                margin-right: 3%;
+            }
+            #right{
+                width: 40%;
+            }
+        }
+        @media (max-width: 479px) {
+            #left, #right{
+                width: 100%;
+            }
+            #banner{
+                background-image: url(01_s.jpg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h3>页头</h3>
+    </div>
+    <div id="nav">
+        <h3>导航</h3>
+    </div>
+    <div id="banner">
+
+    </div>
+    <div id="content">
+        <div id="left">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </div>
+        <div id="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </div>
+    </div>
+    <div id="footer">
+        <h3>页脚</h3>
+    </div>
+</body>
+</html>
