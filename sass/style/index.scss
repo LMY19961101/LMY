@@ -1,0 +1,165 @@
+@charset "utf-8";
+$color:#f00;
+$w:300px;
+#div1{
+  width: $w;
+  height: $w;
+  background: $color;
+  color: $color;
+  .aa{
+    width: 300px;
+    .bb{
+      width: 400px;
+    }
+    &:hover{
+      width: 400px;
+    }
+    &-test{
+      width: 200px;
+    }
+  }
+  .cc{
+    background: $color;
+  }
+}
+#div2{
+  width: 300px;
+  height: 300px;
+  background: {
+    color: $color;
+    image: url(xx.jpg);
+  }
+  border: {
+    bottom: {
+      color: $color;
+      style: solid;
+    };
+  };
+}
+$wid: width;
+#div1{
+  #{$wid}:200px;
+}
+
+
+@mixin xx($w:300px,$bg:#f00){
+  width: $w;
+  height: 200px;
+  background: $bg;
+}
+#div1{
+  @include xx($w:500px,$bg:#000);
+}
+#div2{
+  @include xx(#fff);
+}
+#div3{
+  @include xx();
+  font-size: 12px;
+}
+
+
+
+#div3 .aa{
+  background: #000080;
+}
+#div4{
+  @extend #div3;
+}
+@import "base/common";
+
+$a: #f00;
+@mixin aa($bb: $a){
+  background: $bb;
+}
+#div1{
+  @include aa();
+}
+#div2 {
+  background-image: 'url(img/' + 'aa.jpg)';
+  float: to_upper_case(left);
+}
+
+
+$hw: 'hello world';
+$bgc: rgba(255, 0, 0, .5);
+
+#div3{
+  background-color: transparentize($bgc, 0.3);
+}
+
+
+/*$map: (light: #fff, dark: #000);
+#div2{
+  background-color: map-remove($map,dark);
+  //移除
+}*/
+
+
+$icon1: icon;
+$w: 'width';
+.item-#{$icon1}{
+  #{$w}: 200px;
+}
+
+
+@function xx($bg){
+  @if($bg == 1){
+    @return #f00;
+  }@else if($bg == 2){
+    @return #000;
+  }@else{
+  @return #fff;
+  }
+}
+#div1{
+  color: xx(3);
+}
+
+$column: 5;/*列*/
+@for $i from 1 through $column{
+  .col-lg-#{$i}{
+    width: percentage($i / 10);
+  }
+}
+
+/*循环谁就in谁；icon是奇数*/
+$icons: error waring success;
+@each $icon in $icons{
+  .icon-#{$icon}{
+    background-image: url('img/' + $icon + '.jpg');
+  }
+}
+
+$i :6;
+@while $i > 0{
+  .col-#{$i}{
+    width: percentage($i / 10);
+  }
+  $i: $i - 1;
+}
+
+$map: (light: #fff, dark: #000);
+@function get-color($color){
+  @if not map_has_key($map, $color){
+    @error 'map里不包含key值为： #{$color}';
+    @return #ccc;
+  }
+  @return map_get($map, $color)
+}
+
+#div1{
+  color :get-color(dark);
+}
+
+
+
+
+
+
+
+
+
+
+
+
