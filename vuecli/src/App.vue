@@ -14,6 +14,7 @@
       <router-link to="/testurl/5/lisi">测试url</router-link>
       <router-link to="/home/8/zhangsan">redirect</router-link>
       <router-link to="/abc">alias</router-link>
+      <router-link to="/counter">vuex</router-link>
     </div>
     <transition name="fade">
           <router-view/>

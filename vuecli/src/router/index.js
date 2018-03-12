@@ -6,6 +6,8 @@ import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import TestUrl from '@/components/TestUrl'
 import Error from '@/components/Error'
+import Counter from '@/components/Counter'
+
 
 
 
@@ -49,6 +51,10 @@ export default new Router({
     }, {
       path: '*',
       component: Error
+    }, {
+      path: '/counter',
+      name: 'counter',
+      component: Counter
     }
   ]
 })
