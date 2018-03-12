@@ -1,5 +1,5 @@
 <template>
-  <h1>页面走丢了</h1>
+  <h1>页面遗失了</h1>
 </template>
 
 <script>
