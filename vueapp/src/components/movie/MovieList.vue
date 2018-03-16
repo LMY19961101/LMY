@@ -1,6 +1,6 @@
 <template>
-<div>
-    <ul class="movie-list">
+<div class="movie-list">
+    <ul>
       <li v-for="movie in movieList" :key="movie.id" class="movie">
           <div class="movie-img">
             <img :src="movie.img" alt="">
@@ -31,12 +31,16 @@ export default {
       }
   }, 
   mounted () {
-      Axios.get(API_PROXY + "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset=0" + this.movieList.length
-       ).then(res => {
-        //   console.log(res);
+      let url1 = API_PROXY + "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset" + this.movieList.length;
+      let url2 = '/vueapp/static/moviedata.json'
+      Axios.get(url2).then(res => {
+          console.log(res);
         this.loadingShow = false;
-        this.movieList = res.data.data.movies;
-      }).catch(() => {})
+        let list = res.data.data.movies;
+        this.movieList = list.slice(0, 5);
+      }).catch(() => {
+          alert('获取数据失败');
+      })
   }
 }
 </script>
