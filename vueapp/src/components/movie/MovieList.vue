@@ -1,13 +1,13 @@
 <template>
 <div class="movie-list">
     <ul>
-      <li v-for="movie in movieList" :key="movie.id" class="movie">
+      <li @click="goDetail(movie.id)" v-for="movie in movieList" :key="movie.id" class="movie">
           <div class="movie-img">
             <img :src="movie.img" alt="">
           </div>
           <div class="movie-info">
               <p class="movie-name">{{movie.nm}}</p>
-              <p>{{movie.star}}</p>
+              <p>主演：{{movie.star}}</p>
               <p>{{movie.ver}}</p>
               <p>{{movie.showInfo}}</p>
           </div>
@@ -57,6 +57,10 @@ export default {
      
   }, 
   methods: {
+      goDetail(movieId){
+        console.log(movieId);
+        this.$router.push('/movie/movieDetail/' + movieId);
+      },
       loadDate(){
         let url1 = API_PROXY + "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset" + this.movieList.length;
         let url2 = '/vueapp/static/moviedata.json'

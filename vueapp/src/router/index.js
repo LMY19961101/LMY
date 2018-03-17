@@ -23,7 +23,7 @@ export default new Router({
           path: 'movieList',
           component: MovieList
         }, {
-          path: 'movieDetail',
+          path: 'movieDetail/:movieId',
           component: MovieDetail
         }
       ]
