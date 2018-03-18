@@ -63,7 +63,7 @@ export default {
       },
       loadDate(){
         let url1 = API_PROXY + "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset" + this.movieList.length;
-        let url2 = '/vueapp/static/moviedata.json'
+        let url2 = '/vueapp/static/data/moviedata.json'
         Axios.get(url1).then(res => {
         console.log(res);
         this.loadingShow = false;
