@@ -1,6 +1,6 @@
 <template>
     <div class="albums">
-        <a-player v-if="isShow" :autoplay="true" :music="songs" :showlrc="3" :mutex="true"></a-player>
+        <a-player v-if="isShow" :autoplay="true" :music="songs" :showlrc="true" :mutex="true"></a-player>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     };
   },
   components: {
-    "a-player": VueAplayer
+    'a-player': VueAplayer
   },
   mounted() {
     Axios.get("/static/data/musicdata.json")
