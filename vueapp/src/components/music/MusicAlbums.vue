@@ -1,37 +1,39 @@
 <template>
     <div class="albums">
-        <a-player v-if="isShow" :autoplay="true" :music="songs" :showlrc="true" :mutex="true"></a-player>
+        <aplayer v-if="isShow" :autoplay="true" :music="musicList" :showlrc="true" :mutex="true"/>
     </div>
 </template>
 
 <script>
-import VueAplayer from "vue-aplayer";
+import Aplayer from "vue-aplayer";
 import Axios from "axios";
 
 export default {
   data() {
     return {
-      songs: [],
+      musicList: [],
       isShow: false
     };
   },
   components: {
-    'a-player': VueAplayer
+    Aplayer  
   },
   mounted() {
     Axios.get("/static/data/musicdata.json")
       .then(res => {
         let list = res.data.musicData;
         list.forEach(element => {
-          this.songs.push({
+          let obj = {
             title: element.title,
-            author: element.author,
-            url: element.src,
             pic: element.musicImgSrc,
-            lrc: '/static/' + element.lrc
-          });
+            url: element.src,
+            author: element.author,
+            lrc: "../static/" + element.lrc
+          }
+          this.musicList.push(obj);
         });
         this.isShow = true;
+        console.log(this.musicList);
       })
       .catch();
   }
