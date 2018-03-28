@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import './assets/css/reset.css'
 import './assets/js/rem.js'
+import store from '@/vuex/store'
 
 Vue.config.productionTip = false
 global.API_PROXY = 'https://bird.ioliu.cn/v1/?url='
@@ -14,6 +15,7 @@ global.API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

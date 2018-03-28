@@ -1,7 +1,9 @@
 <template>
-  <ul class="list">
+  <ul class="list clearfix">
       <li v-for="(photo, index) in photoList" :key="index">
-          <img :src="photo.src" alt="">
+          <router-link :to="'/photo/photoDetail/' + index">
+            <img :src="photo.src" alt="">
+          </router-link>
       </li>
   </ul>
 </template>
@@ -24,6 +26,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../assets/css/common.css');
 .list{
     margin: 1rem 0;
 }
