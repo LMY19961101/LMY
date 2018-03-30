@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 
 const state = {
-    photoList: []
+  photoList: []
 };
 
 const mutations = {
     setPhotoList(state, status){
-        state.setPhotoList = status;
+        state.photoList = status;
     }
 };
 //相当于computed
