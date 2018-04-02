@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>aa</div>
+    <div>bb</div>
+    <div>cc</div>
+    <script>
+        // function foo(){
+        //     console.log(arguments[0], arguments[1]);
+        // }
+        // foo(5, 6);
+
+        // function foo(...arg){
+        //     console.log(arg);
+        // }
+        // foo(5, 6, 7, 8);
+
+        // let arr1 = [1, 2];
+        // let arr2 = [3, ...arr1, 4];
+        // console.log(arr2);
+
+        // let arr1 = [1, 2, 3, 4];
+        // let arr2 = [...arr1];//给2建立一个空数组，把1插入到2中，这样就是两个独立的内存空间，互不干扰
+        // console.log(arr2);
+        // arr1.push(5);
+        // console.log(arr2);
+
+        // let arr1 = [1, 2];
+        // let arr2 = [3, 4];
+        // let arr3 = [...arr1, ...arr2];
+        // console.log(arr3);
+        // let arr4 = arr1.concat(arr2);
+        // console.log(arr4);
+
+        // function foo(...arg){
+        //     console.log(obj1, obj2);
+        // }
+        // let obj1 = {
+        //     name: 'zhangsan',
+        //     age: 18
+        // };
+        // let obj2 = {
+        //     name: 'lisi',
+        //     age: 19
+        // };
+        // foo(obj1, obj2);
+        // let obj3 = {obj1, obj2};
+        // console.log(obj3);
+
+        // let aDiv = document.querySelectorAll('div');
+        // console.log(aDiv.constructor);//类数组
+
+        // // let [div1, div2, div3] = [...aDiv];
+        // // console.log([div1, div2, div3].constructor);//转化为数组
+            
+        // let arr = [];
+        // for(let i=0; i<aDiv.length; i++){
+        //     arr.push(aDiv[i]);
+        // }
+        // arr.push(123);
+        // console.log(arr);
+
+        //rest运算符必须放在最后一个
+        function foo(a, b, ...arg){
+            console.log(a);
+            console.log(b);
+            console.log(arg);
+        }
+        foo(3, 4, 5, 6, 7, 8);
+
+    </script>
+</body>
+</html>
