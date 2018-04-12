@@ -1,0 +1,44 @@
+
+  
+#include <stdio.h>  
+#include <memory.h>  
+#include <math.h>  
+#include <iostream>  
+#include <vector>  
+  
+using namespace std;  
+  
+void Primes (int n, vector<int>& vi) {  
+    if (n <= 2)  
+        return;  
+    bool* a = new bool[n+1];  
+    for (int i=1; i<=n; i++)  
+        a[i] = true;  
+    for (int i=2; i<sqrt(n); i++) {  
+        for (int j=2; j*i<=n; j++) {  
+            a[i*j] = false;  
+        }  
+    }  
+    for (int i=1; i<=n; ++i)  
+        if (a[i])  
+            vi.push_back(i);  
+    delete[] a;  
+}  
+  
+int Division (int n) {  
+    vector<int> vi;  
+    Primes(n, vi);  
+    long long min = 1;  
+    for (size_t i=0; i<vi.size(); ++i) {  
+        min *= vi[i];  
+    }  
+    return min;  
+}  
+  
+int main(void)  
+{  
+    int n = 13;  
+    int min = Division(n);  
+    cout << "min = " << min << endl;  
+    return 0;  
+}  
