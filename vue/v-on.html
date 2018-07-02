@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- v-on监听dom事件，并在触发时运行一些js代码 -->
+  <!-- v-on接收一个方法名 -->
+  <div id="app">
+    <!-- 内联语句 -->
+    <button @click="say('hi')">hi</button>
+    <button @click="say('what')">what</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        say (message) {
+          alert(message)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

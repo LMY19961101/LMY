@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- v-model双向数据绑定 -->
+  <!-- 在data选项中声明初始值 -->
+  <div id="app">
+    <input v-model="message" placeholder="edit">
+    <p>message is: {{ message }}</p>
+    <!-- 复选框 -->
+    <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+    <label for="jack">jack</label>
+    <input type="checkbox" id="john" value="john" v-model="checkedNames">
+    <label for="john">john</label>
+    <input type="checkbox" id="mike" value="mike" v-model="checkedNames">
+    <label for="mike">mike</label>
+    <br>
+    <span>checkedNames:{{ checkedNames }}</span>
+    <br>
+    <!-- 单选按钮 -->
+    <input type="radio" id="one" value="one" v-model="picked">
+    <label for="one">one</label>
+    <input type="radio" id="two" value="two" v-model="picked">
+    <label for="two">two</label>
+    <br>
+    <span>picked:{{ picked }}</span>
+    <br>
+    <!-- 用v-for渲染动态选项 -->
+    <select v-model="selected">
+      <option v-for="item in items" :value="item.value">
+        {{ item.text }}
+      </option>
+    </select>
+    <span>selected:{{ selected }}</span>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '',
+        checkedNames: [],
+        picked: '',
+        selected: 'A',
+        items: [
+          {
+            text: 'one',
+            value: 'A'
+          },
+          {
+            text: 'two',
+            value: 'B'
+          },
+          {
+            text: 'three',
+            value: 'C'
+          }
+        ]
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div v-if="Math.random() > 0.5">
+    yes
+  </div>
+  <div v-else>
+    no
+  </div> -->
+
+  <!-- <template v-if="loginType === 'username'">
+    <label>username</label>
+    <input placeholder="enter your username">
+  </template>
+  <template v-else>
+    <label>email</label>
+    <input placeholder="enter your email">
+  </template> -->
+
+  <div id="app">
+    {{msg}}
+    <div v-if="isLogin">欢迎您</div>
+    <div v-else>请登录</div>
+
+    <div v-if="type == 'A'">A</div>
+    <div v-else-if="type == 'B'">B</div>
+    <div v-else>C</div>
+
+    <div v-show="isShow">show</div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'helloword',
+        isLogin: false,
+        type: 'B',
+        isShow: true
+      }
+    })
+  </script>
+</body>
+</html>
