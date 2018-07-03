@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .aa{
+      width: 100px;
+      height: 100px;
+      background: #000fff;
+    }
+    .bb{
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <img :src="imgSrc" :alt="imgAlt">
+    <div :class="divClass">div1</div>
+    <div :class="{aa: isAa}">div2</div>
+    <div :class="{aa: isAa, bb:isBb}">div3</div>
+    <div :style="objectClass">div4</div>
+  </div>
+  <!-- http://img.zcool.cn/community/017fcc5535f1710000001e3101c50c.jpg -->
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        imgSrc: 'http://img.zcool.cn/communty/017fcc5535f1710000001e3101c50c.jpg',
+        imgAlt: '图片加载失败',
+        divClass: 'aa',
+        isAa: true,
+        isBb: true,
+        objectClass: {
+          width: '300px',
+          'background-color': '#002349'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
