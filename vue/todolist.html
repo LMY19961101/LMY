@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    #app {
+      width: 500px;
+      margin: 100px auto
+    }
+    .list li {
+      list-style: none
+    }
+    li {
+      width: 500px;
+      height: 50px;
+      background: #ccc;
+      margin-top: 10px;
+      line-height: 50px;
+    }
+    h1 {
+      text-align: center
+    }
+    .price{
+      float: right;
+      margin-right: 10px;
+    }
+    .input{
+      margin-left: 10px;
+    }
+    .x{
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .red{
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>todolist</h1>
+    <hr>
+    <div>
+      名称：<input type="text" v-model="name" placeholder="请输入产品名称">
+      价格：<input type="text" v-model="price" placeholder="0">
+      <button @click="add()">增加</button>
+      <br>
+      <input type="text" placeholder="请输入关键字" v-model="keyword">
+      <button @click="search">查询</button>
+    </div>
+    <ul class="list">
+      <li v-for="(product,index) in productlist" @click="select(product)" :class="{red: product.isRed}">
+        <input class="input" :value="index" v-model="checked" @click.stop="" type="checkbox">
+        <span class="x" @click.stop="del(index)">[X]</span>
+        <span>{{product.name}}</span>
+        <span class="price">{{product.price}}</span>
+      </li>
+    </ul>
+    <div>
+      <button @click="delAll()">删除选中</button>
+      总价格：
+      {{sum()}}
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        productlist: [
+          {
+            name: '衣服',
+            price: '123',
+            isRed: false
+          },
+          {
+            name: '裤子',
+            price: '50',
+            isRed: false
+          },
+          {
+            name: '鞋',
+            price: '1223',
+            isRed: false
+          },
+          {
+            name: '电视',
+            price: '345',
+            isRed: false
+          },
+          {
+            name: '洗衣机',
+            price: '1000',
+            isRed: false
+          }
+        ],
+        name: '',
+        price: '',
+        keyword: '',
+        checked: []
+      },
+      methods: {
+        select (product) {
+          // console.log(product)
+          product.isRed = !product.isRed
+        },
+        del (index) {
+          this.productlist.splice(index,1)
+        },
+        add () {
+          // console.log(123)
+          this.productlist.push({
+            name: this.name,
+            price: this.price,
+            isRed: false
+          })
+          this.name = ''
+          this.price = 0
+        },
+        search () {
+          let arr = this.productlist.filter((val, key) => {
+            if (val.name.includes(this.keyword)) { 
+              return val
+            }
+          })
+          this.productlist = arr
+        },
+        delAll () {
+          // console.log(this.checked)
+          // 通过value可以改变v-model的值
+          let arr = this.productlist.filter((val, idx) => {
+            if (!this.checked.includes(idx)) {
+              return val
+            }
+          })
+          this.productlist = arr
+          this.checked = []
+        },
+        sum () {
+          let sum = 0
+          this.productlist.forEach(function (val, idx) {
+            if (val.isRed) {
+              sum += parseInt(val.price)
+            }
+          })
+          return sum
+        }
+      }
+    })
+  </script>
+</body>
+</html>
