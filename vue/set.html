@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="change()">改变</button>
+    <ul>
+      <li v-for="item in items">{{item}}</li>
+    </ul>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          items: ['a', 'b', 'c', 'd']
+        }
+      },
+      methods: {
+        change () {
+          Vue.set(this.items, 1, 'e')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
