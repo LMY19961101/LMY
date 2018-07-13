@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  /* p + p {
+    color: red;
+  } */
+  p ~ p {
+    color: red;
+  }
+  /* input[type="text"] {
+
+  } */
+  input:focus {
+    background: #00ff00;
+  }
+  /* #ul1 li:not(.aa) {
+    background: #00ff00;
+  } */
+  #ul1 li:not(:nth-child(even)) {
+    background: #00ff00;
+  }
+  #div1 h1:first-of-type {
+    color: #00ff00;
+  }
+  #div2 {
+    width: 100px;
+    border: 1px solid;
+  }
+  #div2::first-line {
+    background: #00ff00
+  }
+  #div2::selection {
+    background: #00ff00;
+  }
+</style>
+<body>
+  <p>p1</p>
+  <p>p2</p>
+  <h1>111</h1>
+  <p>p3</p>
+  <p>p4</p>
+
+  <input type="text">
+  <input type="password">
+
+  <ul id="ul1">
+    <li></li>
+    <li></li>
+    <li class="aa"></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <div id="div1">
+    <div>1</div>
+    <h1>111</h1>
+    <div>2</div>
+  </div>
+
+  <div id="div2">jfdk jfksfl skfjl sfnl snflsn flsfsl kjf lksjls kjf lksj flsfj</div>
+</body>
+</html>

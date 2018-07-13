@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  /* 插入的是行级元素 */
+  #div1::after {
+    content: '123';
+    background: #334455;
+    width: 100px;
+    height: 100px;
+    display: block;
+  }
+  #div1::before {
+    content: '345';
+  }
+  a::after {
+    content: attr(href)
+  }
+  #ul1 li {
+    list-style: none;
+    float: left;
+  }
+  #ul1 {
+    /* float: left; */
+    /* position: absolute; */
+    /* overflow: hidden; */
+    /* height: 30px; */
+  }
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+</style>
+<body>
+  <div id="div1">aa</div>
+  <a href="www.baidu.com">baidu</a><br>
+  <a href="www.jd.com">jd</a><br>
+  <a href="www.qq.com">qq</a>
+
+  <ul id="ul1" class="clearfix">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</body>
+</html>
