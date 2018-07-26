@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <style type="text/css">
+        #apDiv1 {
+            position: absolute;
+            left: 251px;
+            top: 51px;
+            width: 529px;
+            height: 210px;
+            z-index: 2;
+            background-color: #0000FF;
+        }
+
+        #closebt {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: red;
+        }
+
+        #apDiv2 {
+            position: absolute;
+            left: 128px;
+            top: 381px;
+            width: 912px;
+            height: 18663px;
+            z-index: -1;
+            background-color: #FF0000;
+        }
+
+        
+    </style>
+    <script>
+        var xx = 0;
+        function init() {//获取元素的top值
+            xx = document.getElementById("apDiv1").offsetTop;
+        }
+        function aa() {
+            if (document.body.scrollTop) {//兼容谷歌
+                document.getElementById("apDiv1").style.top = xx + document.body.scrollTop + "px";
+            } else {//兼容ie，火狐
+                document.getElementById("apDiv1").style.top = xx + document.documentElement.scrollTop + "px";
+            }
+        }
+        window.onscroll = aa;
+        function closetext() {
+            document.getElementById("closebt").style.display="none";
+            document.getElementById("apDiv1").style.display="none";
+        }
+    </script>
+</head>
+
+<body onload="init()">
+<div id="apDiv1">
+    <span id="closebt"><a href="#" onclick="closetext()">可关闭</a></span>
+</div>
+<div id="apDiv2"></div>
+</body>
+</html>

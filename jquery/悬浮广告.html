@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  #pop{
+    background:#fff;width:300px; height:282px;font-size:12px;position:fixed;right:0;bottom:0;
+    }
+#popHead{
+  line-height:32px;background:#f6f0f3;border-bottom:1px solid #e0e0e0;font-size:12px;
+padding-left:10px;
+}
+#popHead h2{font-size:14px;color:#666;line-height:32px;height:32px;}
+#popHead #popClose{position:absolute;right:10px;top:1px;}
+#popHead a#popClose:hover{color:#f00;cursor:pointer;}
+</style>
+<body>
+    <div id="pop" style="display:none;">
+        <div id="popHead">
+        <a id="popClose" title="关闭">关闭</a>
+        <h2>赞助广告</h2>
+      </div>
+      <div id="popContent">
+      <a href="http://www.helloweba.net/" target="_blank"><img src="images/imgad.jpg"></a>
+      </div>
+    </div>
+</body>
+<script src=""></script>
+<script>
+  function Pop(){
+	this.apearTime=1000;
+	this.hideTime=500;
+	this.delay=10000;
+	//显示
+	this.showDiv();
+	//关闭
+    this.closeDiv();
+}
+Pop.prototype={
+  showDiv:function(time){
+	if (!($.browser.msie && ($.browser.version == "6.0") && !$.support.style)) {
+      $('#pop').slideDown(this.apearTime).delay(this.delay).fadeOut(400);;
+    } else{//调用jquery.fixed.js,解决ie6不能用fixed
+      $('#pop').show();
+			jQuery(function($j){
+			    $j('#pop').positionFixed()
+			})
+    }
+  },
+  closeDiv:function(){
+  	$("#popClose").click(function(){
+  		  $('#pop').hide();
+  		}
+    );
+  }
+}
+</script>
+</html>

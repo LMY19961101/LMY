@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+    <style type="text/css">
+        html,
+        body
+        {
+            margin: 0;
+            padding: 0;
+        }
+        div
+        {
+            font-size: 30px;
+            font-weight: bold;
+
+            position: fixed;
+
+            display: flex;
+
+            width: 200px;
+            height: 200px;
+
+            color: white;
+            border-radius: 50%;
+            background: red;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        div
+        {
+            /* Firefox */
+            -webkit-animation: rotate 5s linear infinite;
+               -moz-animation: rotate 5s linear infinite;
+            /* Safari 和 Chrome */
+                 -o-animation: rotate 5s linear infinite;
+                    animation: rotate 5s linear infinite;
+            /* Opera */
+        }
+
+        @keyframes rotate
+        {
+            0%
+            {
+                /* Firefox */
+                -webkit-transform: rotate(0deg);
+                /* IE 9 */
+                   -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                /* Safari 和 Chrome */
+                     -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                /* Opera */
+            }
+            100%
+            {
+                /* Firefox */
+                -webkit-transform: rotate(360deg);
+                /* IE 9 */
+                   -moz-transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                /* Safari 和 Chrome */
+                     -o-transform: rotate(360deg);
+                        transform: rotate(360deg);
+                /* Opera */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad">Hello, world!</div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var div = document.querySelector('#ad');
+    var divTop = 0;
+    var divLeft = 0;
+    // true： top 和 left 自增，false： top 和 left 自减
+    var flagT = true;
+    var flagL = true;
+
+    function move() {
+        (div.offsetHeight + divTop == window.innerHeight) ? flagT = false: flagT;
+        (div.offsetWidth + divLeft == window.innerWidth) ? flagL = false: flagL;
+        flagT ? divTop++ : divTop--;
+        flagL ? divLeft++ : divLeft--;
+        div.style.left = divLeft + 'px';
+        div.style.top = divTop + 'px';
+        (divTop <= 0) ? flagT = true: flagT;
+        (divLeft <= 0) ? flagL = true: flagL;
+        setTimeout(move, 5);
+    }
+    setTimeout(move, 1);
+</script>

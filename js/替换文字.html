@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let origin = [{
+        name: 'org1',
+        status: 1
+    },{
+        name: 'org2',
+        status: 1
+    },{
+        name: 'org3',
+        status: 1
+    }];
+    let target = [{
+        name: 'org1',
+        value: '对象1'
+    },{
+        name: 'org2',
+        value: '对象2'
+    },{
+        name: 'org3',
+        value: '对象3'
+    }]
+
+    function changeValue(org, target) {
+        org.map(function(orgItem, index, arr) {
+           let find =  target.filter(function(targetItem) {
+                return orgItem.name === targetItem.name
+            }) 
+            console.log(find);
+            arr[index].name = find[0].value
+        })
+    }
+    changeValue(origin, target);
+    console.log(origin)
+  </script>
+</body>
+</html>
