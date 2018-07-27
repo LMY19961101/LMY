@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="app">
+      <div class="switch">
+          <span class="switch-input">
+              <input type="checkbox"  :false-value=0 :true-value=1 v-model="val">
+              <span class="input-box"></span>
+          </span>
+          <div class="switch-label"><slot></slot></div>
+      </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vue = require('vue.js');
+
+module.exports = vue.component('switch',{
+    template:__inline('./switch.html'),
+    props:{
+        val:{
+            type:[Number,String],
+            require:true,
+            twoWay: true
+        }
+    },
+    data:function(){
+        return {};
+    }
+});
+  </script>
+</body>
+</html>
