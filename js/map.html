@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var m = new Map(); //new一个对象 ，键值唯一
+    // m.set(1, "aaaaaaa"); // 添加值
+    // m.set(2, "dddddd");
+    // m.set("h", [1,4,3,5,6,]);
+    // m.set("sex", 2);
+    // m.set({a:2}, 3);
+    // m.set({a:2}, 3);// 只会输出一个来
+    // //遍历打印效果
+    // m.forEach(function (item, key, mapObj) {
+    //   console.log(item);
+    //   console.log(key);
+    //   console.log(mapObj);
+    // });
+
+    let target = [
+      {
+        name: 'zhangsan',
+        age: 18
+      },
+      {
+        name: 'lisi',
+        age: 20
+      },
+      {
+        name: 'wangwu',
+        age: 30
+      }
+    ];
+    let response = [
+      {
+        value: '张三',
+        age: 18
+      },
+      {
+        value: '李四',
+        age: 20
+      },
+      {
+        value: '王五',
+        age: 30
+      }
+    ];
+    function changeName (tar, res) {
+      tar.map(function (targetItem, index, arr) {
+        let find = res.filter(function (responseItem) {
+          return targetItem.age === responseItem.age
+        })
+        console.log(find);
+        arr[index].name = find[0].value
+      })
+    }
+    changeName(target, response)
+    console.log(target)
+  </script>
+</body>
+</html>
