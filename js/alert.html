@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var color = 'green';
+    var test4399 = {
+      color: 'blue',
+      getColor: function () {
+        var color = 'red';
+        alert(this.color);
+      }
+    }
+    var getColor = test4399.getColor;
+    // var getColor = function(){
+    //   var color = 'red';alert(this.color)}
+    // 执行getColor时 this指向window，window的color是green
+    getColor(); 
+    test4399.getColor();
+    //this指向test4399，test4399的color是blue
+  </script>
+</body>
+</html>
