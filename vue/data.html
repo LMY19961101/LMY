@@ -1,0 +1,33 @@
+<DataPageTable :columns="cols"
+                   :data="tableData"
+                   :search-text="searchText"
+                   size="small"
+                   border
+                   :loading="loading">
+    </DataPageTable>
+  </div>
+
+</template>
+
+<script>
+  export default {
+    name: 'bwp-list',
+    props: {
+      region: String
+    },
+    data () {
+      return {
+        tableData: [],
+        searchText: '',
+        cols: [
+          {key: 'bwp_id', title: 'bwp_id', sortable: true, searchable: true},
+          {key: 'bandwidth', title: '带宽', sortable: true, searchable: true},
+          {key: 'gateway_id', title: 'gateway_id', sortable: true, searchable: true},
+          {key: 'gateway_name', title: 'gateway_name', sortable: true, searchable: true},
+          {key: 'num_ips', title: 'num_ips', sortable: true, searchable: true},
+          {key: 'tol', title: '线路类型', sortable: true, searchable: true},
+          {key: 'remark', title: '备注', sortable: true, searchable: true}
+        ],
+        loading: false
+      }
+    },
