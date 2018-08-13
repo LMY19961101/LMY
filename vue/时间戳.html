@@ -1,0 +1,88 @@
+
+<script>
+  export default {
+    data() {
+     return {
+       columns1: [
+        {
+            title: '序号',      
+            type: 'index',      /* type=index,iview将自动为表格添加序号 */
+            align: 'center'
+        },
+        {
+            title: '维保时间',
+            key: 'lastUpdate',
+            render: function (h, params) {
+              return h('div', 
+                new Date(this.row.lastUpdate).Format('yyyy-MM-dd'));/*这里的this.row能够获取当前行的数据*/
+            }
+        },
+        {
+            title: '维保部件',
+            key: 'maintainItem'
+        },
+        {
+            title: '更换配件',
+            key: 'parts'
+        },
+        {
+            title: '备注',
+            key: 'comments'
+        }
+      ],
+      data1: [],            /* 未来数据的存放区 */
+      maintainMsgs:{        /* 这里直接贴出axios请求服务器相应回来的数据 */
+        "success": true,
+        "msg": "查询成功",
+        "object": [
+          {
+            "statusCode": 0,
+            "maintainItem": "环境",
+            "planTagId": 319784,
+            "lastUpdate": 1510825560000,
+            "parts": "",
+            "comments": "-"
+          },
+          {
+            "statusCode": 0,
+            "maintainItem": "装置",
+            "planTagId": 3,
+            "lastUpdate": 1510825560000,
+            "parts": "",
+            "comments": "-"
+          }
+        ],
+        "result": null
+      }
+     },
+     methods :{
+      formatDate(timestramp){
+        return new Date(timestramp).Format('yyyy-MM-dd');
+      },
+      initFormatter(){
+        Date.prototype.Format = function(fmt) { //
+          let o = {  
+              "M+" : this.getMonth()+1,                 //月份  
+              "d+" : this.getDate(),                    //日  
+              "h+" : this.getHours(),                   //小时  
+              "m+" : this.getMinutes(),                 //分  
+              "s+" : this.getSeconds(),                 //秒  
+              "q+" : Math.floor((this.getMonth()+3)/3), //季度  
+              "S"  : this.getMilliseconds()             //毫秒  
+          };  
+          if(/(y+)/.test(fmt))  
+              fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));  
+          for(var k in o)  
+              if(new RegExp("("+ k +")").test(fmt))  
+                  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));  
+          return fmt;  
+        }
+      }
+     }
+     created(){
+       this.data1 = this.maintainMsgs.object; // 数据初始化
+       this.initFormatter();                  // 为Date 对象添加Format方法
+     }
+    }
+  }
+  </script>
