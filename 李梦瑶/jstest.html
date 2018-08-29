@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    setTimeout(function(){
+      var result=10*5;
+      if(result===50){
+          resolve(50);
+      }else{
+        reject(new Error('Bad Math'));
+      }
+    },1000);
+    });
+    p.then(function(result){
+        console.log('Resolve with a values of %d',result);
+    });
+    p.catch(function(){
+      console.error('Something went wrong');
+    });
+  </script>
+</body>
+</html>
