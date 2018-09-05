@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      //app.vue
+      <router-view v-if="regionLoaded"></router-view>
+      regionLoaded: false
+      created () {
+        this.$api.cephReg().getRegions()
+          .then(response => {
+            console.log(response)
+            this.regionLoaded = true
+            this.$store.commit('zoneList', response.data.data)
+            
+            console.log(this.$store.state.zoneList[0].name)
+          })
+          .catch()
+      },
+
+      //main.vue
+      created () {
+      console.log(this.$store.state.zoneList)
+      const zoneNames = this.$store.state.zoneList.map(item => item.name)
+      // todo: zoneNames is empty 
+      // jump zone empty page
+      // debugger
+      if (zoneNames.indexOf(this.zone) === -1) {
+        const params = {
+          ...this.$route.params,
+          zone: zoneNames[0]
+        }
+        this.$router.push({
+          name: this.$route.name,
+          params
+        })
+      }
+    },
+
+    //router
+    {
+      path: '/',
+      redirect: () => {
+        return `/ceph/null/cluster/assetsmanage`
+      }
+    },
+
+    //index.js
+    zoneList (state, zoneList) {
+      // todo: set state
+      state.zoneList = zoneList
+    },
+
+    //CephZoneDropdown
+    computed: {
+      zoneList () {
+        return store.state.zoneList
+      }
+    },
+  </script>
+</body>
+</html>
