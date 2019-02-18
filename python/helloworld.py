@@ -113,3 +113,45 @@
 #   return False
 # print(is_number('1'))
 
+# num = int(input("请输入一个数字:"))
+# if (num % 2) == 0:
+#   print("{}是偶数".format(num))
+# else:
+#   print("{}是奇数".format(num))
+
+# year = int(input("请输入年份:"))
+# if (year % 4) == 0:
+#   if (year % 100):
+#     if (year % 400) == 0:
+#       print("{}是闰年".format(year))
+#     else:
+#       print("{}不是闰年".format(year))
+#   else:
+#     print("{}是闰年".format(year))
+# else:
+#   print("{}不是闰年".format(year))
+
+# print("80, 90, -1, -1000中最大值：", max(80, 90, -1, -1000))
+
+# num = int(input("请输入一个数字："))
+# if num > 1:
+#   for i in range(2, num):
+#     if (num % i) == 0:
+#       print(num, "不是质数")
+#       print(i, "乘与", num//i, "是", num)
+#       break
+#   else:
+#     print(num, "是质数")
+# else:
+#   print(num, "不是质数")
+
+# low = int(input("最小值："))
+# up = int(input("最大值："))
+# for num in range(low, up+1):
+#   if num > 1:
+#     for i in range(2, num):
+#       if (num % i) == 0:
+#         break
+#     else:
+#       print(num)
+
