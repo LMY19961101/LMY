@@ -95,11 +95,21 @@
 # else:
 #   print('负数')
 
-num = float(input('请输入一个数字：'))
-if num >= 0:
-  if (num == 0):
-    print('0')
-  else:
-    print('正数')
-else:
-  print('负数')
+# num = float(input('请输入一个数字：'))
+# if num >= 0:
+#   if (num == 0):
+#     print('0')
+#   else:
+#     print('正数')
+# else:
+#   print('负数')
+
+# def is_number(s):
+#   try:
+#     float(s)
+#     return True
+#   except ValueError:
+#     pass
+#   return False
+# print(is_number('1'))
+
