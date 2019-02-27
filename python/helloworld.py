@@ -155,3 +155,90 @@
 #     else:
 #       print(num)
 
+# for i in range(1, 10):
+#   for j in range(1, i+1):
+#     print("{}x{}={}\t".format(i, j, i*j), end='')
+#   print()
+
+# nterms = int(input("你需要几项？"))
+# n1 = 0
+# n2 = 1
+# count = 2
+# if nterms <= 0:
+#   print("请输入一个正整数")
+# elif nterms == 1:
+#   print("斐波那契数列:")
+#   print(n1)
+# else:
+#   print("斐波那契数列:")
+#   print(n1,',',n2,end=",")
+#   while count < nterms:
+#     nth = n1 + n2
+#     print(nth,end=",")
+#     n1 = n2
+#     n2 = nth
+#     count += 1
+
+# num = int(input("请输入一个数字："))
+# sum = 0
+# n = len(str(num))
+# temp = num
+# while temp > 0:
+#   digit = temp % 10
+#   sum += digit ** n
+#   temp //= 10
+# if num == sum:
+#   print(num, "是阿姆斯特朗数")
+# else:
+#   print(num, "不是阿姆斯特朗数")
+
+# 获取用户输入的数字
+# num = int(input("请输入一个数字: "))
+# # 初始化变量 sum
+# sum = 0
+# # 指数
+# n = len(str(num))
+# # 检测
+# temp = num
+# while temp > 0:
+#    digit = temp % 10
+#    sum += digit ** n
+#    temp //= 10
+# # 输出结果
+# if num == sum:
+#    print(num,"是阿姆斯特朗数")
+# else:
+#    print(num,"不是阿姆斯特朗数")
+
+# 计算器
+def add (x, y):
+  return x + y
+
+def subtract (x, y):
+  return x - y
+
+def multiply (x, y):
+  return x * y
+
+def divide (x, y):
+  return x / y
+
+print("选择运算：")
+print("1,相加")
+print("2,相减")
+print("3,相乘")
+print("1,相除")
+
+chioce = input("请输入你的选择1/2/3/4:")
+num1 = int(input("请输入第一个数字："))
+num2 = int(input("请输入第二个数字："))
+if chioce == '1':
+  print(num1, "+", num2, "=", add(num1, num2))
+elif chioce == '2':
+  print(num1, "-", num2, "=", subtract(num1, num2))
+elif chioce == '3':
+  print(num1, "*", num2, "=", multiply(num1, num2))
+elif chioce == '4':
+  print(num1, "/", num2, "=", divide(num1, num2))
+else:
+  print("非法输入!")
