@@ -210,35 +210,51 @@
 # else:
 #    print(num,"不是阿姆斯特朗数")
 
-# 计算器
-def add (x, y):
-  return x + y
+# # 计算器
+# def add (x, y):
+#   return x + y
 
-def subtract (x, y):
-  return x - y
+# def subtract (x, y):
+#   return x - y
 
-def multiply (x, y):
-  return x * y
+# def multiply (x, y):
+#   return x * y
 
-def divide (x, y):
-  return x / y
+# def divide (x, y):
+#   return x / y
 
-print("选择运算：")
-print("1,相加")
-print("2,相减")
-print("3,相乘")
-print("1,相除")
+# print("选择运算：")
+# print("1,相加")
+# print("2,相减")
+# print("3,相乘")
+# print("1,相除")
 
-chioce = input("请输入你的选择1/2/3/4:")
-num1 = int(input("请输入第一个数字："))
-num2 = int(input("请输入第二个数字："))
-if chioce == '1':
-  print(num1, "+", num2, "=", add(num1, num2))
-elif chioce == '2':
-  print(num1, "-", num2, "=", subtract(num1, num2))
-elif chioce == '3':
-  print(num1, "*", num2, "=", multiply(num1, num2))
-elif chioce == '4':
-  print(num1, "/", num2, "=", divide(num1, num2))
-else:
-  print("非法输入!")
+# chioce = input("请输入你的选择1/2/3/4:")
+# num1 = int(input("请输入第一个数字："))
+# num2 = int(input("请输入第二个数字："))
+# if chioce == '1':
+#   print(num1, "+", num2, "=", add(num1, num2))
+# elif chioce == '2':
+#   print(num1, "-", num2, "=", subtract(num1, num2))
+# elif chioce == '3':
+#   print(num1, "*", num2, "=", multiply(num1, num2))
+# elif chioce == '4':
+#   print(num1, "/", num2, "=", divide(num1, num2))
+# else:
+#   print("非法输入!")
+
+# # 生成日历
+# import calendar
+# year = int(input('请输入年份：'))
+# month = int(input('请输入月份：'))
+# print(calendar.month(year, month))
+
+# import calendar
+ 
+# # 输入指定年月
+# yy = int(input("输入年份: "))
+# mm = int(input("输入月份: "))
+ 
+# # 显示日历
+# print(calendar.month(yy,mm))
+
