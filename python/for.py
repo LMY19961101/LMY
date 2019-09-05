@@ -44,3 +44,6 @@
 #     continue
 #   print(n)
 
+from function import my_abs
+a = my_abs(-9)
+print(a)
