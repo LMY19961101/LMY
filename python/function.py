@@ -164,12 +164,12 @@
 # def f1(a, b, c=0, *args, **kw):
 #   print('a=', a, 'b=', b, 'c=', c, 'd=', d, 'kw=', kw)
 
-def product(*numbers):
-  x=1
-  for i in numbers:
-    x = x*i
-  return x
-print(product(1,2,3))
+# def product(*numbers):
+#   x=1
+#   for i in numbers:
+#     x = x*i
+#   return x
+# print(product(1,2,3))
 
 # 默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误
 # 要注意定义可变参数和关键字参数的语法：
@@ -181,3 +181,8 @@ print(product(1,2,3))
 # 使用*args和**kw是习惯写法
 # 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值
 # 定义命名的关键字参数在没有可变参数的情况下不要忘了写*，否则定义的将是位置参数
+
+def person(name, age, *, city='beijing', job):
+  print(name, age, city, job)
+
+person('jack', 24, job='engineer')
