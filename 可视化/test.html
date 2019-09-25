@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <svg>
+      <circle cx="100" cy="100" r="30" />
+  </svg> -->
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    // d3.selectAll("p").style("color", "white");
+    // d3.select("body").style("background-color", "black");
+
+    // d3.selectAll("p").style("color", function() {
+    //   return "hsl(" + Math.random() * 360 + ",100%,50%)";
+    // });
+
+    // d3.selectAll("p")
+    //   .data([4, 8, 15, 16, 23, 42])
+    //   .style("font-size", function(d) { return d + "px"; });
+
+    // d3.select("body")
+    //   .selectAll("p")
+    //   .data([4, 8, 15, 16, 23, 42])
+    //   .enter().append("p")
+    //   .text(function(d) { return "I’m number " + d + "!"; });
+
+    // var p = d3.select("body")
+    //           .selectAll("p")
+    //           .data([4, 8, 15, 16, 23, 42])
+    //           .text(function(d) { return d; });
+    // p.exit().remove()  //移除多余的元素
+
+    // // Update 情形2
+    // var p = d3.select("body")
+    //   .selectAll("p")
+    //   .data([4, 8, 15, 16, 23, 42])
+    //   .text(function (d) { return d; });
+
+    // // Enter 情形1
+    // p.enter().append("p")
+    //   .text(function (d) { return d; });
+
+    // // Exit 情形3
+    // p.exit().remove();
+
+    d3.selectAll("circle").transition()
+      .duration(750)
+      .delay(function(d, i) { return i * 10; })
+      .attr("r", function(d) { return Math.sqrt(d * scale); });
+  </script>
+</body>
+
+</html>
