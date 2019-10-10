@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="main1" class="main main1" style="width:250px;height:300px;"></div>
+  <div id="main2" class="main main2" style="width:250px;height:300px;"></div>
+
+  <!-- raphael.js主库 -->
+  <script src="./raphael.js" type="text/javascript"></script> 
+
+  <!-- raphael.js扩展库，可实现局部元素拖拽，背景画布拖拽缩放等 -->
+  <script src="./raphael.extension.js" type="text/javascript"></script>
+  
+  <script>
+    //js初始化部分：
+    var paper1 = Raphael.createNew(document.getElementsByClassName('main')[0], 500, 400);
+    var paper2 = Raphael.createNew(document.getElementsByClassName('main')[1], 500, 400);
+  </script>
+</body>
+
+</html>

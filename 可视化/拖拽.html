@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .root {
+    width: 300px;
+    height: 200px;
+    border: 1px solid blue;
+    position: absolute;
+  }
+
+  .root-title {
+    background: blue;
+    color: white;
+    height: 40px;
+  }
+
+  .root-content {
+    width: 100%;
+    height: 160px;
+  }
+
+  .rack {
+    width: 120px;
+    height: 140px;
+    border: 1px solid #F19E1F;
+    display: inline-block;
+    position: absolute;
+    top: 300px;
+  }
+
+  .rack-title {
+    background: #F19E1F;
+    color: white;
+    height: 40px;
+  }
+
+  .rack-content {
+    width: 100%;
+    height: 100px;
+  }
+
+  .host {
+    width: 70px;
+    height: 90px;
+    border: 1px solid #F19E1F;
+    position: absolute;
+  }
+
+  .host-title {
+    width: 100%;
+    height: 30px;
+    background: #CCCCCC;
+  }
+
+  .host-content {
+    width: 100%;
+    height: 60px;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- 第一行 -->
+    <div>
+      <div class="root">
+        <div class="root-title">Root</div>
+        <div class="root-content"></div>
+      </div>
+    </div>
+    <!-- 第二行 -->
+    <div>
+      <div class="rack" id="rack" @mousedown="rackDown">
+        <div class="rack-title">Rack 1</div>
+        <div class="rack-content"></div>
+      </div>
+      <!-- <div class="rack">
+        <div class="rack-title">Rack 2</div>
+        <div class="rack-content"></div>
+      </div>
+      <div class="rack">
+        <div class="rack-title">Rack 3</div>
+        <div class="rack-content"></div>
+      </div> -->
+    </div>
+    <!-- 第三行 -->
+    <!-- <div>
+      <div class="host">
+        <div class="host-title">Host 1</div>
+        <div class="host-content"></div>
+      </div>
+    </div> -->
+
+  </div>
+  <script src="vue.js"></script>
+  <script>
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          rackX: '',
+          rackY: '',
+          rackL: '',
+          rackT: '',
+          rackIsDown: false
+        }
+      },
+      methods: {
+        rackDown(e) {
+
+          var rackX = e.clientX
+          var rackY = e.clientY
+          var rack = document.getElementById('rack')
+          var rackL = rack.offsetLeft
+          var rackT = rack.offsetTop
+          // console.log(this.rackX)
+          rack.style.cursor = 'move'
+
+          window.onmousemove = function(e) {
+
+            let nx = e.clientX
+            let ny = e.clientY
+            let nl = nx - (rackX - rackL)
+            let nt = ny - (rackY - rackT)
+
+            rack.style.left = nl + 'px'
+            rack.style.top = nt + 'px'
+            // console.log(rack.style.top)
+            // console.log(rack.style)
+          }
+          window.onmouseup = function(e) {
+            // console.log('up')
+            window.onmousemove = null;
+            window.onmouseup = null;
+            rack.style.cursor = 'default'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

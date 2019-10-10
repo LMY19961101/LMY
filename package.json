@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "dnd.js": "^0.4.10"
+  }
+}
