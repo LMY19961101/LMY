@@ -14,7 +14,6 @@
       <div class="root-content"></div>
     </droppable>
     <!-- 第二行 -->
-
     <droppable class="rack-container" @drop="onDropBack">
       <draggable
         class="rack"
@@ -23,37 +22,20 @@
         @dragstart="onSourceDragStart"
         @dragend="onSourceDragEnd"
       >
+        
         <droppable @dragenter="rackEnter" @drop="onDropRackContent">
           <div class="rack-title">Rack 1</div>
           <div class="rack-content"></div>
         </droppable>
       </draggable>
     </droppable>
-
+    <!-- 第三行 -->
     <droppable class="host-container" @drop="onDropHost">
-      <draggable class="host" id="host" @dragstart="hostDragStart">
-        <div class="host-title">Host 1</div>
+      <draggable v-for="item in hostList" :key="item" class="host" id="host" @dragstart="hostDragStart">
+        <div class="host-title">{{ item }}</div>
         <div class="host-content"></div>
       </draggable>
     </droppable>
-
-    <!-- </div> -->
-    <!-- <div class="rack">
-        <div class="rack-title">Rack 2</div>
-        <div class="rack-content"></div>
-      </div>
-      <div class="rack">
-        <div class="rack-title">Rack 3</div>
-        <div class="rack-content"></div>
-    </div>-->
-    <!-- </div> -->
-    <!-- 第三行 -->
-    <!-- <div>
-      <div class="host">
-        <div class="host-title">Host 1</div>
-        <div class="host-content"></div>
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -70,7 +52,8 @@ export default {
   data () {
     return {
       isEnter: false,
-      cloneData: ''
+      cloneData: '',
+      hostList: ['host1', 'host2', 'host3']
     }
   },
   methods: {
@@ -102,6 +85,7 @@ export default {
       } else {
         params.el.style.background = 'rgba(0, 0, 255, 0.1)'
       }
+      window.event.stopPropagation()
     },
     onDragEnd (params) {
       console.log('root监听到拖动结束', params)
@@ -119,11 +103,17 @@ export default {
       params.el.appendChild(params.sourceNode)
     },
     onDropRackContent (params) {
-      console.log(params)
+      console.log('rack监听到拖动被放下', params)
+      console.log(params.el.style.width)
+      params.el.style.width = 200 + 'px'
+
+      
+      // window.event.stopPropagation()
       params.methods.removeDragedNode('fade')
       params.el.childNodes[2].appendChild(params.sourceNode)
     },
     onDropHost (params) {
+      // window.event.stopPropagation()
       params.methods.removeDragedNode('fade')
       params.el.appendChild(params.sourceNode)
     },
@@ -193,6 +183,7 @@ export default {
 .rack-content {
   width: 100%;
   height: 100px;
+  /* background: #665; */
 }
 
 .host {
@@ -201,6 +192,7 @@ export default {
   border: 1px solid #f19e1f;
   display: inline-block;
   position: relative;
+  margin-right: 10px;
 }
 
 .host-title {
@@ -212,6 +204,7 @@ export default {
 .host-content {
   width: 100%;
   height: 60px;
+  background: #900;
 }
 .rack-container {
   height: 200px;
